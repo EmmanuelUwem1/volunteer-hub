@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import SearchFilters from "@/components/SearchFilters";
 import OpportunityList from "@/components/OpportunityList";
 import { volunteerOpportunities } from "@/data/volunteerOpportunities";
+import PageTransitionEffect from "@/components/PageTransitionEffect";
 // import { VolunteerOpportunity } from "@/types/volunteer";
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,6 +30,7 @@ const Index = () => {
   }, [searchQuery, selectedCategory]);
 
   return (
+    <PageTransitionEffect>
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
 
@@ -58,7 +60,8 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
+      </div>
+      </PageTransitionEffect>
   );
 };
 

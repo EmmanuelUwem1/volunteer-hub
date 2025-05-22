@@ -1,14 +1,5 @@
-export type Category =
-  | "Education"
-  | "Environment"
-  | "Health"
-  | "Animals"
-  | "Community"
-  | "Crisis Support"
-  | "Arts & Culture"
-  | "Sports & Recreation"
-  | "Technology"
-  | "Food & Hunger";
+export type Category = string
+  
 
 export interface VolunteerOpportunity {
   id: string;

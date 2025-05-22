@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import AddOpportunityForm from "./AddOpportunityForm";
@@ -8,9 +8,9 @@ const Header = () => {
     <header className="sticky top-0 z-10 w-full bg-white/80 backdrop-blur-sm border-b border-gray-200 px-4 py-3 md:px-14 sm:px-6">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center">
-          <h1 className="text-xl font-bold text-volunteer-dark">
+          <Link href="/" className="text-xl md:text-2xl font-bold text-volunteer-dark">
             <span className="text-blue-500">Volunteer</span> Hub
-          </h1>
+          </Link>
         </div>
 
         <Dialog>
