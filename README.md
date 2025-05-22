@@ -38,7 +38,7 @@ A sleek and modern **Next.js** application that helps users browse, filter, and 
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/volunteer-hub.git
+   git clone https://github.com/EmmanuelUwem1/volunteer-hub.git
    cd volunteer-hub
 
 
