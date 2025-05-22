@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import SearchFilters from "@/components/SearchFilters";
