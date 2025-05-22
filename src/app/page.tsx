@@ -3,8 +3,7 @@ import Header from "@/components/Header";
 import SearchFilters from "@/components/SearchFilters";
 import OpportunityList from "@/components/OpportunityList";
 import { volunteerOpportunities } from "@/data/volunteerOpportunities";
-import { VolunteerOpportunity } from "@/types/volunteer";
-
+// import { VolunteerOpportunity } from "@/types/volunteer";
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");

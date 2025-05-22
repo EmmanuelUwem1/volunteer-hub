@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { categories } from "@/data/volunteerOpportunities";
 import { useToast } from "@/hooks/use-toast";
-import { Category } from "@/types/volunteer";
+// import { Category } from "@/types/volunteer";
 
 const AddOpportunityForm = () => {
   const { toast } = useToast();
