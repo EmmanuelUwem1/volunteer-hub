@@ -1,0 +1,121 @@
+import { Category, VolunteerOpportunity } from "@/types/volunteer";
+
+export const categories: Category[] = [
+  "Education",
+  "Environment",
+  "Health",
+  "Animals",
+  "Community",
+  "Crisis Support",
+  "Arts & Culture",
+  "Sports & Recreation",
+  "Technology",
+  "Food & Hunger",
+];
+
+export const volunteerOpportunities: VolunteerOpportunity[] = [
+  {
+    id: "1",
+    title: "Tutor Math at Local School",
+    organization: "Bright Futures Education",
+    location: "San Francisco, CA",
+    datePosted: "2025-05-15",
+    category: "Education",
+    description:
+      "Help middle school students improve their math skills. Sessions will be held after school hours twice a week.",
+    duration: "3 months, 4 hours/week",
+    skillsRequired: ["Teaching", "Mathematics", "Patience"],
+    contactEmail: "volunteer@brightfutures.org",
+  },
+  {
+    id: "2",
+    title: "Beach Cleanup Volunteer",
+    organization: "Ocean Guardians",
+    location: "Santa Monica, CA",
+    datePosted: "2025-05-10",
+    category: "Environment",
+    description:
+      "Join our monthly beach cleanup to help protect marine wildlife and keep our shorelines clean for everyone to enjoy.",
+    duration: "One-time event, 4 hours",
+    skillsRequired: ["Physical Ability", "Environmental Awareness"],
+    contactEmail: "cleanup@oceanguardians.org",
+  },
+  {
+    id: "3",
+    title: "Hospital Support Volunteer",
+    organization: "Mercy Medical Center",
+    location: "Chicago, IL",
+    datePosted: "2025-05-18",
+    category: "Health",
+    description:
+      "Assist hospital staff with non-medical tasks such as patient companionship, wayfinding help for visitors, and administrative support.",
+    duration: "Ongoing, 6 hours/week",
+    skillsRequired: ["Communication", "Empathy", "Reliability"],
+    contactEmail: "volunteers@mercymedical.org",
+  },
+  {
+    id: "4",
+    title: "Animal Shelter Assistant",
+    organization: "Paws & Whiskers Rescue",
+    location: "Austin, TX",
+    datePosted: "2025-05-05",
+    category: "Animals",
+    description:
+      "Help care for shelter animals by feeding, cleaning, and providing companionship. Training will be provided.",
+    duration: "Flexible schedule, minimum 2 hours/week",
+    skillsRequired: ["Animal Handling", "Compassion"],
+    contactEmail: "help@pawsrescue.org",
+  },
+  {
+    id: "5",
+    title: "Food Bank Volunteer",
+    organization: "Community Food Share",
+    location: "Denver, CO",
+    datePosted: "2025-05-20",
+    category: "Food & Hunger",
+    description:
+      "Help sort and distribute food to those in need. Tasks include packaging food items, organizing donations, and assisting visitors.",
+    duration: "Ongoing, 3-4 hours/week",
+    skillsRequired: ["Organization", "Customer Service"],
+    contactEmail: "volunteer@communityfoodshare.org",
+  },
+  {
+    id: "6",
+    title: "Tech Support for Seniors",
+    organization: "Digital Bridges",
+    location: "Remote",
+    datePosted: "2025-05-12",
+    category: "Technology",
+    description:
+      "Provide technical support and training to seniors who are learning to use computers and smartphones. Help bridge the digital divide!",
+    duration: "6 months, 2 hours/week",
+    skillsRequired: ["Technical Knowledge", "Teaching", "Patience"],
+    contactEmail: "help@digitalbridges.org",
+  },
+  {
+    id: "7",
+    title: "Community Garden Volunteer",
+    organization: "Green Thumb Coalition",
+    location: "Portland, OR",
+    datePosted: "2025-05-08",
+    category: "Environment",
+    description:
+      "Help maintain our community garden which provides fresh produce to local food banks and creates green space in urban areas.",
+    duration: "Seasonal (Spring-Fall), 3 hours/week",
+    skillsRequired: ["Gardening", "Physical Ability"],
+    contactEmail: "garden@greenthumb.org",
+  },
+  {
+    id: "8",
+    title: "Crisis Text Line Responder",
+    organization: "Hope Connection",
+    location: "Remote",
+    datePosted: "2025-05-17",
+    category: "Crisis Support",
+    description:
+      "Provide support via text messages to individuals in crisis. Comprehensive training will be provided to all volunteers.",
+    duration: "6-month commitment, 4 hours/week",
+    skillsRequired: ["Empathy", "Communication", "Emotional Resilience"],
+    contactEmail: "support@hopeconnection.org",
+  },
+];
