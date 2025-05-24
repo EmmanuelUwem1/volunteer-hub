@@ -14,6 +14,7 @@ function Page() {
     useState<VolunteerOpportunity[]>([]);
 
   useEffect(() => {
+    if(localStorage){
     const locallyStored = localStorage.getItem("volunteerOpportunities");
 
     if (locallyStored) {
@@ -33,6 +34,7 @@ function Page() {
       );
       setVolunteerOpportunitiesState(volunteerOpportunities);
     }
+  }
   }, []);
 
   // Filter opportunities based on search query and selected category

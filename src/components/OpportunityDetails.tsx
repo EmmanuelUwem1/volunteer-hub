@@ -114,17 +114,17 @@ const OpportunityDetails: React.FC<OpportunityDetailsProps> = ({
         </div>
       </div>
 
-      <div className="flex justify-between mt-6">
+      <div className="flex gap-2 justify-between mt-6">
         <Button
           variant="outline"
           onClick={handleContact}
-          className="border-volunteer-primary text-volunteer-primary hover:bg-volunteer-primary hover:text-white"
+          className="border-volunteer-primary text-volunteer-primary hover:bg-volunteer-primary"
         >
           Contact Organization
         </Button>
         <Button
           onClick={handleApply}
-          className="bg-volunteer-primary hover:bg-blue-600 transition-colors"
+          className="bg-blue-600 hover:bg-blue-600 transition-colors"
         >
           Apply Now
         </Button>

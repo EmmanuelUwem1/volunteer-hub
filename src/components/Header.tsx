@@ -9,7 +9,7 @@ const Header = () => {
       <div className="flex items-center">
         <Link
           href="/"
-          className="text-xl md:text-2xl font-bold text-volunteer-dark"
+          className="sm:text-xl text-lg md:text-2xl font-bold text-volunteer-dark"
         >
           <span className="text-blue-500">Volunteer</span> Hub
         </Link>
