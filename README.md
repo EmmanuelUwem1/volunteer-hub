@@ -34,6 +34,7 @@ A sleek and modern **Next.js** application that helps users browse, filter, and 
 - **Tailwind CSS** – Modern utility-first styling framework.
 - **React Toastify** – Notifications for user interactions.
 - **Mock Data** – Temporary placeholder data for testing features.
+- **Local Storage** – Temporarily store data for testing features.
 
 ## 🚀 Installation
 
