@@ -1,9 +1,5 @@
+"use client";
 import React, { useState } from "react";
-import {
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,9 +15,13 @@ import { categories } from "@/data/volunteerOpportunities";
 import { useToast } from "@/hooks/use-toast";
 // import { Category } from "@/types/volunteer";
 
+
 const AddOpportunityForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const opportunitiesArray = JSON.parse(
+    localStorage.getItem("volunteerOpportunities") || "[]"
+  );
 
   const [form, setForm] = useState({
     title: "",
@@ -33,6 +33,26 @@ const AddOpportunityForm = () => {
     skillsRequired: "",
     contactEmail: "",
   });
+  
+  interface OpportunityForm {
+    title: string;
+    organization: string;
+    location: string;
+    category: string;
+    description: string;
+    duration: string;
+    skillsRequired: string;
+    contactEmail: string;
+  }
+
+  function AddOpportunity(form: OpportunityForm): void {
+    opportunitiesArray.push(form); // Push new opportunity into the array
+    localStorage.setItem(
+      "volunteerOpportunities",
+      JSON.stringify(opportunitiesArray)
+    ); // Store the updated array
+  }
+  
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -92,14 +112,14 @@ const AddOpportunityForm = () => {
 
   return (
     <>
-      <DialogHeader>
-        <DialogTitle>Add Volunteer Opportunity</DialogTitle>
-        <DialogDescription>
-          Fill out the form below to create a new volunteer opportunity posting.
-        </DialogDescription>
-      </DialogHeader>
+      <h1> Add Volunteer Opportunity </h1>
 
-      <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+      <span>
+        {" "}
+        Fill out the form below to create a new volunteer opportunity posting.
+      </span>
+
+      <form onSubmit={handleSubmit} className="space-y-6 mt-6 flex w-full">
         <div className="space-y-4">
           <div>
             <Label htmlFor="title" className="text-right">
@@ -227,6 +247,7 @@ const AddOpportunityForm = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
+            onClick={() => AddOpportunity(form)}
             className="bg-volunteer-primary hover:bg-blue-600 transition-colors"
           >
             {isSubmitting ? "Creating..." : "Create Opportunity"}

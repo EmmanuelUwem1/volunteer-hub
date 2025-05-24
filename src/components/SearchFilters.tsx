@@ -36,7 +36,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
             placeholder="Search by title or organization"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="pl-9 bg-[#e8ecf5]"
+            className="pl-9 bg-[#e8ecf590]"
           />
         </div>
 

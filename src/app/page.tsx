@@ -1,40 +1,71 @@
-"use client"
-import React, { useState, useMemo } from "react";
-import Header from "@/components/Header";
+"use client";
+import React, { useState, useMemo, useEffect } from "react";
 import SearchFilters from "@/components/SearchFilters";
 import OpportunityList from "@/components/OpportunityList";
 import { volunteerOpportunities } from "@/data/volunteerOpportunities";
 import PageTransitionEffect from "@/components/PageTransitionEffect";
-// import { VolunteerOpportunity } from "@/types/volunteer";
-const Index = () => {
+import { VolunteerOpportunity } from "@/types/volunteer";
+
+function Page() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  const [volunteerOpportunitiesState, setVolunteerOpportunitiesState] =
+    useState<VolunteerOpportunity[]>([]);
+
+  useEffect(() => {
+    const locallyStored = localStorage.getItem("volunteerOpportunities");
+
+    if (locallyStored) {
+      try {
+        const parsedData = JSON.parse(locallyStored);
+        setVolunteerOpportunitiesState(
+          Array.isArray(parsedData) ? parsedData : []
+        );
+      } catch (error) {
+        console.error("Error parsing localStorage data:", error);
+        setVolunteerOpportunitiesState([]);
+      }
+    } else {
+      localStorage.setItem(
+        "volunteerOpportunities",
+        JSON.stringify(volunteerOpportunities)
+      );
+      setVolunteerOpportunitiesState(volunteerOpportunities);
+    }
+  }, []);
+
   // Filter opportunities based on search query and selected category
   const filteredOpportunities = useMemo(() => {
-    return volunteerOpportunities.filter((opportunity) => {
-      // Filter by search query
-      const searchMatch =
-        searchQuery === "" ||
-        opportunity.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        opportunity.organization
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
+    if (!Array.isArray(volunteerOpportunitiesState)) {
+      console.error(
+        "volunteerOpportunitiesState is not an array:",
+        volunteerOpportunitiesState
+      );
+      return [];
+    }
 
-      // Filter by category
-      const categoryMatch =
-        selectedCategory === "all" || opportunity.category === selectedCategory;
+    return volunteerOpportunitiesState.filter(
+      (opportunity: VolunteerOpportunity) => {
+        const searchMatch =
+          searchQuery === "" ||
+          opportunity.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          opportunity.organization
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
 
-      return searchMatch && categoryMatch;
-    });
-  }, [searchQuery, selectedCategory]);
+        const categoryMatch =
+          selectedCategory === "all" ||
+          opportunity.category === selectedCategory;
+
+        return searchMatch && categoryMatch;
+      }
+    );
+  }, [searchQuery, selectedCategory, volunteerOpportunitiesState]);
 
   return (
     <PageTransitionEffect>
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
-
-      <main className="flex-1">
+      <div className="">
         <SearchFilters
           searchQuery={searchQuery}
           selectedCategory={selectedCategory}
@@ -45,24 +76,15 @@ const Index = () => {
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold text-gray-800">
-              {filteredOpportunities.length} Opportunities Available
+              {filteredOpportunities?.length ?? 0} Opportunities Available
             </h2>
           </div>
 
-          <OpportunityList opportunities={filteredOpportunities} />
+          <OpportunityList opportunities={filteredOpportunities ?? []} />
         </div>
-      </main>
-
-      <footer className="w-full py-6 bg-white border-t border-gray-200">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
-          <p className="text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} VolunteerHub. All rights reserved.
-          </p>
-        </div>
-      </footer>
       </div>
-      </PageTransitionEffect>
+    </PageTransitionEffect>
   );
-};
+}
 
-export default Index;
+export default Page;
