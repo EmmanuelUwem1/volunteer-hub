@@ -1,4 +1,5 @@
 # 🚀 Volunteer Hub
+![Screenshot 2025-05-24 174444](https://github.com/user-attachments/assets/d6881d05-2b97-48dd-8dca-4a9e3c49546a)
 
 A sleek and modern **Next.js** application that helps users browse, filter, and manage volunteer opportunities. With **Shadcn UI** for beautiful components and **Framer Motion** for engaging animations, the app offers a seamless experience for volunteers looking to make an impact.
 
