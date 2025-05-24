@@ -111,7 +111,7 @@ const AddOpportunityForm = () => {
   };
 
   return (
-    <>
+    <div>
       <h1> Add Volunteer Opportunity </h1>
 
       <span>
@@ -241,9 +241,7 @@ const AddOpportunityForm = () => {
               required
             />
           </div>
-        </div>
-
-        <div className="flex justify-end">
+        <div className="flex justify-end bg-blue-500">
           <Button
             type="submit"
             disabled={isSubmitting}
@@ -253,8 +251,10 @@ const AddOpportunityForm = () => {
             {isSubmitting ? "Creating..." : "Create Opportunity"}
           </Button>
         </div>
+        </div>
+
       </form>
-    </>
+    </div>
   );
 };
 
